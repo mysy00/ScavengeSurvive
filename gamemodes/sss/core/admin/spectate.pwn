@@ -45,29 +45,29 @@ hook OnPlayerConnect(playerid)
 	stop spectate_Timer[playerid];
 
 	spectate_Name						=CreatePlayerTextDraw(playerid, 320.000000, 365.000000, "[HLF]Southclaws");
-	PlayerTextDrawAlignment			(playerid, spectate_Name, 2);
-	PlayerTextDrawBackgroundColor	(playerid, spectate_Name, 255);
-	PlayerTextDrawFont				(playerid, spectate_Name, 1);
+	PlayerTextDrawAlignment(playerid, spectate_Name, TEXT_DRAW_ALIGN_CENTRE);
+	PlayerTextDrawBackgroundColour	(playerid, spectate_Name, 255);
+	PlayerTextDrawFont(playerid, spectate_Name, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, spectate_Name, 0.200000, 1.000000);
-	PlayerTextDrawColor				(playerid, spectate_Name, -1);
+	PlayerTextDrawColour				(playerid, spectate_Name, -1);
 	PlayerTextDrawSetOutline		(playerid, spectate_Name, 0);
 	PlayerTextDrawSetProportional	(playerid, spectate_Name, 1);
 	PlayerTextDrawSetShadow			(playerid, spectate_Name, 1);
 	PlayerTextDrawUseBox			(playerid, spectate_Name, 1);
-	PlayerTextDrawBoxColor			(playerid, spectate_Name, 255);
+	PlayerTextDrawBoxColour			(playerid, spectate_Name, 255);
 	PlayerTextDrawTextSize			(playerid, spectate_Name, 100.000000, 340.000000);
 
 	spectate_Info						=CreatePlayerTextDraw(playerid, 320.000000, 380.000000, "Is awesome");
-	PlayerTextDrawAlignment			(playerid, spectate_Info, 2);
-	PlayerTextDrawBackgroundColor	(playerid, spectate_Info, 255);
-	PlayerTextDrawFont				(playerid, spectate_Info, 1);
+	PlayerTextDrawAlignment(playerid, spectate_Info, TEXT_DRAW_ALIGN_CENTRE);
+	PlayerTextDrawBackgroundColour	(playerid, spectate_Info, 255);
+	PlayerTextDrawFont(playerid, spectate_Info, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, spectate_Info, 0.200000, 1.000000);
-	PlayerTextDrawColor				(playerid, spectate_Info, -1);
+	PlayerTextDrawColour				(playerid, spectate_Info, -1);
 	PlayerTextDrawSetOutline		(playerid, spectate_Info, 0);
 	PlayerTextDrawSetProportional	(playerid, spectate_Info, 1);
 	PlayerTextDrawSetShadow			(playerid, spectate_Info, 1);
 	PlayerTextDrawUseBox			(playerid, spectate_Info, 1);
-	PlayerTextDrawBoxColor			(playerid, spectate_Info, 255);
+	PlayerTextDrawBoxColour			(playerid, spectate_Info, 255);
 	PlayerTextDrawTextSize			(playerid, spectate_Info, 100.000000, 340.000000);
 }
 
@@ -468,7 +468,10 @@ timer UpdateSpectateMode[100](playerid)
 	}
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(spectate_Target[playerid] != INVALID_PLAYER_ID)
 	{
@@ -515,7 +518,7 @@ GetPlayerSpectateTarget(playerid)
 	return spectate_Target[playerid];
 }
 
-stock GetPlayerSpectateType(playerid)
+stock SS_GetPlayerSpectateType(playerid)
 {
 	if(!IsPlayerConnected(playerid))
 		return -1;

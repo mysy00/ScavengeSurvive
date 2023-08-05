@@ -150,7 +150,10 @@ stock RemovePlayerHolsterItem(playerid)
 ==============================================================================*/
 
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(newkeys & KEY_YES)
 	{

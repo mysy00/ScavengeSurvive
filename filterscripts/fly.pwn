@@ -40,7 +40,10 @@ CMD:fly(playerid, params[])
 	return 1;
 }
 
-public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(IsPlayerAdmin(playerid))
 	{
@@ -55,7 +58,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			{
 				fly[playerid] = true;
 				ClearAnimations(playerid);
-				ApplyAnimation(playerid, "PARACHUTE", "FALL_SKYDIVE", 4.0, 1, 0, 0, 0, 0, 1);
+				ApplyAnimation(playerid, "PARACHUTE", "FALL_SKYDIVE", 4.0, 1, 0, 0, 0, 0, SYNC_ALL);
 			}
 		}
 	}
@@ -109,7 +112,10 @@ public OnPlayerUpdate(playerid)
 	return 1;
 }
 
-public OnPlayerDeath(playerid, killerid, reason)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
 	fly[playerid] = false;
 }

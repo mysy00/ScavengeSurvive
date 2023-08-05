@@ -277,7 +277,7 @@ LoadPlayerVehicle(const filepath[])
 	SetVehicleHP(vehicleid, Float:data[VEH_CELL_HEALTH]);
 	SetVehicleFuel(vehicleid, Float:data[VEH_CELL_FUEL]);
 	SetVehicleDamageData(vehicleid, data[VEH_CELL_PANELS], data[VEH_CELL_DOORS], data[VEH_CELL_LIGHTS], data[VEH_CELL_TIRES]);
-	SetVehicleColours(vehicleid, data[VEH_CELL_COL1], data[VEH_CELL_COL2]);
+	ChangeVehicleColours(vehicleid, data[VEH_CELL_COL1], data[VEH_CELL_COL2]);
 	SetVehicleKey(vehicleid, data[VEH_CELL_KEY]);
 
 	SetVehicleExternalLock(vehicleid, E_LOCK_STATE:data[VEH_CELL_LOCKED]);
@@ -646,7 +646,10 @@ _SaveVehicle(vehicleid)
 ==============================================================================*/
 
 
-hook OnPlayerStateChange(playerid, newstate, oldstate)
+#if !defined PLAYER_STATE
+	#define PLAYER_STATE: _:
+#endif
+hook OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
 	if(newstate == PLAYER_STATE_DRIVER)
 	{

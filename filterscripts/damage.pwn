@@ -17,7 +17,10 @@
 
 
 
-public OnPlayerTakeDamage(playerid, issuerid, Float:amount, weaponid, bodypart)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+public OnPlayerTakeDamage(playerid, issuerid, Float:amount, WEAPON:weaponid, bodypart)
 {
 	new str[128];
 	format(str, 128, "Amount: %f weaponid: %d bodypard: %d", amount, weaponid, bodypart);

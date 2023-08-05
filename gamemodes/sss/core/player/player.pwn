@@ -91,7 +91,7 @@ public OnPlayerConnect(playerid)
 
 	TogglePlayerControllable(playerid, false);
 	Streamer_ToggleIdleUpdate(playerid, true);
-	SetSpawnInfo(playerid, NO_TEAM, 0, DEFAULT_POS_X, DEFAULT_POS_Y, DEFAULT_POS_Z, 0.0, 0, 0, 0, 0, 0, 0);
+	SetSpawnInfo(playerid, NO_TEAM, 0, DEFAULT_POS_X, DEFAULT_POS_Y, DEFAULT_POS_Z, 0.0, WEAPON_FIST, 0, WEAPON_FIST, 0, WEAPON_FIST, 0);
 	SpawnPlayer(playerid);
 
 	/*
@@ -313,7 +313,7 @@ public OnPlayerRequestClass(playerid, classid)
 {
 	if(IsPlayerNPC(playerid))return 1;
 
-	SetSpawnInfo(playerid, NO_TEAM, 0, DEFAULT_POS_X, DEFAULT_POS_Y, DEFAULT_POS_Z, 0.0, 0, 0, 0, 0, 0, 0);
+	SetSpawnInfo(playerid, NO_TEAM, 0, DEFAULT_POS_X, DEFAULT_POS_Y, DEFAULT_POS_Z, 0.0, WEAPON_FIST, 0, WEAPON_FIST, 0, WEAPON_FIST, 0);
 
 	return 0;
 }
@@ -322,7 +322,7 @@ public OnPlayerRequestSpawn(playerid)
 {
 	if(IsPlayerNPC(playerid))return 1;
 
-	SetSpawnInfo(playerid, NO_TEAM, 0, DEFAULT_POS_X, DEFAULT_POS_Y, DEFAULT_POS_Z, 0.0, 0, 0, 0, 0, 0, 0);
+	SetSpawnInfo(playerid, NO_TEAM, 0, DEFAULT_POS_X, DEFAULT_POS_Y, DEFAULT_POS_Z, 0.0, WEAPON_FIST, 0, WEAPON_FIST, 0, WEAPON_FIST, 0);
 
 	return 1;
 }
@@ -411,7 +411,10 @@ public OnPlayerUpdate(playerid)
 	return 1;
 }
 
-hook OnPlayerStateChange(playerid, newstate, oldstate)
+#if !defined PLAYER_STATE
+	#define PLAYER_STATE: _:
+#endif
+hook OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
 	if(newstate == PLAYER_STATE_DRIVER || newstate == PLAYER_STATE_PASSENGER)
 	{
@@ -454,7 +457,10 @@ hook OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 	return 1;
 }
 
-public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(IsPlayerKnockedOut(playerid))
 		return 0;

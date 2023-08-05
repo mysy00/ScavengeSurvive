@@ -164,7 +164,13 @@ public OnFilterScriptInit()
 }
 
 
-public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)
+#if !defined BULLET_HIT_TYPE
+	#define BULLET_HIT_TYPE: _:
+#endif
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+public OnPlayerWeaponShot(playerid, WEAPON:weaponid, BULLET_HIT_TYPE:hittype, hitid, Float:fX, Float:fY, Float:fZ)
 {
 	new
 		Float:x,
@@ -302,7 +308,10 @@ public OnPlayerUpdate(playerid)
 	return 1;
 }
 
-public OnPlayerTakeDamage(playerid, issuerid, Float:amount, weaponid, bodypart)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+public OnPlayerTakeDamage(playerid, issuerid, Float:amount, WEAPON:weaponid, bodypart)
 {
 	ShowActionText(playerid, sprintf("DMG: %d | %f", weaponid, amount), 0);
 
@@ -312,7 +321,10 @@ public OnPlayerTakeDamage(playerid, issuerid, Float:amount, weaponid, bodypart)
 	return 1;
 }
 
-public OnPlayerGiveDamage(playerid, damagedid, Float:amount, weaponid, bodypart)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+public OnPlayerGiveDamage(playerid, damagedid, Float:amount, WEAPON:weaponid, bodypart)
 {
 	return 1;
 }

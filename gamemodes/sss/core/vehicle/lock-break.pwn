@@ -52,7 +52,10 @@ hook OnPlayerInteractVehicle(playerid, vehicleid, Float:angle)
 	return Y_HOOKS_CONTINUE_RETURN_0;
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(oldkeys & 16)
 	{

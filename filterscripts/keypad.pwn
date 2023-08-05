@@ -112,9 +112,9 @@ public OnFilterScriptExit()
 LoadTD(playerid)
 {
 	kp_Background					=CreatePlayerTextDraw(playerid, 320.000000, 204.000000, "_");
-	PlayerTextDrawAlignment			(playerid, kp_Background, 2);
+	PlayerTextDrawAlignment(playerid, kp_Background, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Background, -1);
-	PlayerTextDrawFont				(playerid, kp_Background, 1);
+	PlayerTextDrawFont(playerid, kp_Background, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Background, 0.500000, 16.199998);
 	PlayerTextDrawColor				(playerid, kp_Background, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Background, 1);
@@ -125,7 +125,7 @@ LoadTD(playerid)
 
 	kp_EdgeL						=CreatePlayerTextDraw(playerid, 275.000000, 204.000000, "_");
 	PlayerTextDrawBackgroundColor	(playerid, kp_EdgeL, -1);
-	PlayerTextDrawFont				(playerid, kp_EdgeL, 1);
+	PlayerTextDrawFont(playerid, kp_EdgeL, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_EdgeL, 0.500000, -1.100000);
 	PlayerTextDrawColor				(playerid, kp_EdgeL, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_EdgeL, 1);
@@ -136,7 +136,7 @@ LoadTD(playerid)
 
 	kp_EdgeT						=CreatePlayerTextDraw(playerid, 275.000000, 204.000000, "_");
 	PlayerTextDrawBackgroundColor	(playerid, kp_EdgeT, -1);
-	PlayerTextDrawFont				(playerid, kp_EdgeT, 1);
+	PlayerTextDrawFont(playerid, kp_EdgeT, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_EdgeT, 0.500000, 16.199998);
 	PlayerTextDrawColor				(playerid, kp_EdgeT, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_EdgeT, 1);
@@ -147,7 +147,7 @@ LoadTD(playerid)
 
 	kp_EdgeB						=CreatePlayerTextDraw(playerid, 275.000000, 359.000000, "_");
 	PlayerTextDrawBackgroundColor	(playerid, kp_EdgeB, -1);
-	PlayerTextDrawFont				(playerid, kp_EdgeB, 1);
+	PlayerTextDrawFont(playerid, kp_EdgeB, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_EdgeB, 0.500000, -1.100000);
 	PlayerTextDrawColor				(playerid, kp_EdgeB, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_EdgeB, 1);
@@ -158,7 +158,7 @@ LoadTD(playerid)
 
 	kp_EdgeR						=CreatePlayerTextDraw(playerid, 365.000000, 199.000000, "_");
 	PlayerTextDrawBackgroundColor	(playerid, kp_EdgeR, -1);
-	PlayerTextDrawFont				(playerid, kp_EdgeR, 1);
+	PlayerTextDrawFont(playerid, kp_EdgeR, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_EdgeR, 0.500000, 16.800001);
 	PlayerTextDrawColor				(playerid, kp_EdgeR, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_EdgeR, 1);
@@ -168,9 +168,9 @@ LoadTD(playerid)
 	PlayerTextDrawTextSize			(playerid, kp_EdgeR, 365.000000, 82.000000);
 
 	kp_KeyEnter						=CreatePlayerTextDraw(playerid, 350.000000, 330.000000, ">");
-	PlayerTextDrawAlignment			(playerid, kp_KeyEnter, 2);
+	PlayerTextDrawAlignment(playerid, kp_KeyEnter, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_KeyEnter, -1);
-	PlayerTextDrawFont				(playerid, kp_KeyEnter, 1);
+	PlayerTextDrawFont(playerid, kp_KeyEnter, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_KeyEnter, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_KeyEnter, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_KeyEnter, 1);
@@ -181,9 +181,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_KeyEnter, true);
 
 	kp_KeyCancel					=CreatePlayerTextDraw(playerid, 290.000000, 330.000000, "X");
-	PlayerTextDrawAlignment			(playerid, kp_KeyCancel, 2);
+	PlayerTextDrawAlignment(playerid, kp_KeyCancel, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_KeyCancel, -1);
-	PlayerTextDrawFont				(playerid, kp_KeyCancel, 1);
+	PlayerTextDrawFont(playerid, kp_KeyCancel, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_KeyCancel, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_KeyCancel, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_KeyCancel, 1);
@@ -194,9 +194,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_KeyCancel, true);
 
 	kp_Key0							=CreatePlayerTextDraw(playerid, 320.000000, 330.000000, "0");
-	PlayerTextDrawAlignment			(playerid, kp_Key0, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key0, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key0, -1);
-	PlayerTextDrawFont				(playerid, kp_Key0, 1);
+	PlayerTextDrawFont(playerid, kp_Key0, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key0, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key0, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key0, 1);
@@ -207,9 +207,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key0, true);
 
 	kp_Key1							=CreatePlayerTextDraw(playerid, 290.000000, 300.000000, "1");
-	PlayerTextDrawAlignment			(playerid, kp_Key1, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key1, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key1, -1);
-	PlayerTextDrawFont				(playerid, kp_Key1, 1);
+	PlayerTextDrawFont(playerid, kp_Key1, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key1, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key1, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key1, 1);
@@ -220,9 +220,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key1, true);
 
 	kp_Key2							=CreatePlayerTextDraw(playerid, 320.000000, 300.000000, "2");
-	PlayerTextDrawAlignment			(playerid, kp_Key2, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key2, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key2, -1);
-	PlayerTextDrawFont				(playerid, kp_Key2, 1);
+	PlayerTextDrawFont(playerid, kp_Key2, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key2, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key2, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key2, 1);
@@ -233,9 +233,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key2, true);
 
 	kp_Key3							=CreatePlayerTextDraw(playerid, 350.000000, 300.000000, "3");
-	PlayerTextDrawAlignment			(playerid, kp_Key3, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key3, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key3, -1);
-	PlayerTextDrawFont				(playerid, kp_Key3, 1);
+	PlayerTextDrawFont(playerid, kp_Key3, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key3, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key3, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key3, 1);
@@ -246,9 +246,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key3, true);
 
 	kp_Key4							=CreatePlayerTextDraw(playerid, 290.000000, 270.000000, "4");
-	PlayerTextDrawAlignment			(playerid, kp_Key4, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key4, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key4, -1);
-	PlayerTextDrawFont				(playerid, kp_Key4, 1);
+	PlayerTextDrawFont(playerid, kp_Key4, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key4, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key4, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key4, 1);
@@ -259,9 +259,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key4, true);
 
 	kp_Key5							=CreatePlayerTextDraw(playerid, 320.000000, 270.000000, "5");
-	PlayerTextDrawAlignment			(playerid, kp_Key5, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key5, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key5, -1);
-	PlayerTextDrawFont				(playerid, kp_Key5, 1);
+	PlayerTextDrawFont(playerid, kp_Key5, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key5, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key5, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key5, 1);
@@ -272,9 +272,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key5, true);
 
 	kp_Key6							=CreatePlayerTextDraw(playerid, 350.000000, 270.000000, "6");
-	PlayerTextDrawAlignment			(playerid, kp_Key6, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key6, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key6, -1);
-	PlayerTextDrawFont				(playerid, kp_Key6, 1);
+	PlayerTextDrawFont(playerid, kp_Key6, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key6, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key6, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key6, 1);
@@ -285,9 +285,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key6, true);
 
 	kp_Key7							=CreatePlayerTextDraw(playerid, 290.000000, 240.000000, "7");
-	PlayerTextDrawAlignment			(playerid, kp_Key7, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key7, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key7, -1);
-	PlayerTextDrawFont				(playerid, kp_Key7, 1);
+	PlayerTextDrawFont(playerid, kp_Key7, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key7, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key7, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key7, 1);
@@ -298,9 +298,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key7, true);
 
 	kp_Key8						=CreatePlayerTextDraw(playerid, 320.000000, 240.000000, "8");
-	PlayerTextDrawAlignment			(playerid, kp_Key8, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key8, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key8, -1);
-	PlayerTextDrawFont				(playerid, kp_Key8, 1);
+	PlayerTextDrawFont(playerid, kp_Key8, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key8, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key8, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key8, 1);
@@ -311,9 +311,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key8, true);
 
 	kp_Key9							=CreatePlayerTextDraw(playerid, 350.000000, 240.000000, "9");
-	PlayerTextDrawAlignment			(playerid, kp_Key9, 2);
+	PlayerTextDrawAlignment(playerid, kp_Key9, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Key9, -1);
-	PlayerTextDrawFont				(playerid, kp_Key9, 1);
+	PlayerTextDrawFont(playerid, kp_Key9, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, kp_Key9, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Key9, 255);
 	PlayerTextDrawSetOutline		(playerid, kp_Key9, 1);
@@ -324,9 +324,9 @@ LoadTD(playerid)
 	PlayerTextDrawSetSelectable		(playerid, kp_Key9, true);
 
 	kp_Display						=CreatePlayerTextDraw(playerid, 320.000000, 210.000000, "0000");
-	PlayerTextDrawAlignment			(playerid, kp_Display, 2);
+	PlayerTextDrawAlignment(playerid, kp_Display, TEXT_DRAW_ALIGN_CENTRE);
 	PlayerTextDrawBackgroundColor	(playerid, kp_Display, -1);
-	PlayerTextDrawFont				(playerid, kp_Display, 2);
+	PlayerTextDrawFont(playerid, kp_Display, TEXT_DRAW_FONT_2);
 	PlayerTextDrawLetterSize		(playerid, kp_Display, 0.500000, 2.000000);
 	PlayerTextDrawColor				(playerid, kp_Display, -65281);
 	PlayerTextDrawSetOutline		(playerid, kp_Display, 0);

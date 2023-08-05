@@ -5,7 +5,7 @@
             "label": "build only",
             "type": "process",
             "command": "sampctl",
-            "args": ["package", "build"],
+            "args": ["build"],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -28,7 +28,7 @@
             "label": "build watcher",
             "type": "process",
             "command": "sampctl",
-            "args": ["package", "build"],
+            "args": ["build"],
             "group": "build",
             "isBackground": true,
             "presentation": {
@@ -40,7 +40,7 @@
         {
             "label": "run tests",
             "type": "shell",
-            "command": "sampctl package run",
+            "command": "sampctl run",
             "group": {
                 "kind": "test",
                 "isDefault": true
@@ -55,7 +55,7 @@
         {
             "label": "run tests watcher",
             "type": "shell",
-            "command": "sampctl package run --watch",
+            "command": "sampctl run --watch",
             "group": "test",
             "isBackground": true,
             "presentation": {

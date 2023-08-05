@@ -61,7 +61,7 @@ hook OnPlayerConnect(playerid)
 		count;
 
 	GetPlayerName(playerid, name, MAX_PLAYER_NAME);
-	gpci(playerid, hash, MAX_GPCI_LEN);
+	GPCI(playerid, hash, MAX_GPCI_LEN);
 
 	stmt_bind_result_field(stmt_GpciCheckName, 0, DB::TYPE_INTEGER, count);
 	stmt_bind_value(stmt_GpciCheckName, 0, DB::TYPE_STRING, name, MAX_PLAYER_NAME);

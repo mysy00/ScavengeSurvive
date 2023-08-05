@@ -335,7 +335,10 @@ hook OnPlayerUseItem(playerid, Item:itemid)
 	return Y_HOOKS_CONTINUE_RETURN_0;
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(tree_CuttingTree[playerid] == INVALID_TREE_ID)
 		return Y_HOOKS_CONTINUE_RETURN_0;
@@ -358,7 +361,7 @@ _StartWoodCutting(playerid, treeid)
 	StartHoldAction(playerid, floatround(1.1 * (mult * start)), mult * (start - end));
 
 	SetPlayerToFaceTree(playerid, treeid);
-	ApplyAnimation(playerid, "CHAINSAW", "CSAW_G", 4.0, 1, 0, 0, 0, 0, 1);
+	ApplyAnimation(playerid, "CHAINSAW", "CSAW_G", 4.0, 1, 0, 0, 0, 0, SYNC_ALL);
 	tree_CuttingTree[playerid] = treeid;
 }
 

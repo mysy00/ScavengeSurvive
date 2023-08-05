@@ -16,7 +16,10 @@
 #include <YSI_Coding\y_hooks>
 
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(!IsPlayerInAnyVehicle(playerid))
 		return 1;

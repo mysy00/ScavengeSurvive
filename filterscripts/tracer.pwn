@@ -64,7 +64,13 @@ public OnFilterScriptInit()
 }
 
 
-public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)
+#if !defined BULLET_HIT_TYPE
+	#define BULLET_HIT_TYPE: _:
+#endif
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+public OnPlayerWeaponShot(playerid, WEAPON:weaponid, BULLET_HIT_TYPE:hittype, hitid, Float:fX, Float:fY, Float:fZ)
 {
 	if(hittype == BULLET_HIT_TYPE_NONE)
 	{

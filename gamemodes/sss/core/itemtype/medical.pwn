@@ -53,7 +53,10 @@ hook OnItemCreate(Item:itemid)
 	}
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	new
 		Item:itemid,

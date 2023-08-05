@@ -216,7 +216,10 @@ _vint_LeaveArea(playerid, areaid)
 	return;
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(newkeys == 16)
 		_varea_Interact(playerid);

@@ -16,7 +16,10 @@
 #include <YSI_Coding\y_hooks>
 
 
-hook OnPlayerTakeDamage(playerid, issuerid, Float:amount, weaponid, bodypart)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+hook OnPlayerTakeDamage(playerid, issuerid, Float:amount, WEAPON:weaponid, bodypart)
 {
 	if(IsPlayerOnAdminDuty(playerid))
 		return 0;

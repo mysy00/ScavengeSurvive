@@ -28,7 +28,7 @@ public OnFilterScriptInit()
 
 	for(new i;i<MAX_PLAYERS;i++)if(IsPlayerNPC(i))
 	{
-		SetSpawnInfo(i, 255, 287, 0.0 + i, 0.0, 3.0, 270.0, 0, 0, 0, 0, 0, 0);
+		SetSpawnInfo(i, 255, 287, 0.0 + i, 0.0, 3.0, 270.0, WEAPON_FIST, 0, WEAPON_FIST, 0, WEAPON_FIST, 0);
 		SpawnPlayer(i);
 		SetPlayerPos(i, 0.0 + 3*i, 0.0, 3.0);
 	}
@@ -42,7 +42,7 @@ public spawn()
 
 	for(new i;i<MAX_PLAYERS;i++)if(IsPlayerNPC(i))
 	{
-		SetSpawnInfo(i, 255, 287, 0.0 + i, 0.0, 3.0, 270.0, 0, 0, 0, 0, 0, 0);
+		SetSpawnInfo(i, 255, 287, 0.0 + i, 0.0, 3.0, 270.0, WEAPON_FIST, 0, WEAPON_FIST, 0, WEAPON_FIST, 0);
 		SpawnPlayer(i);
 		SetPlayerPos(i, 0.0 + 3*i, 0.0, 3.0);
 	}

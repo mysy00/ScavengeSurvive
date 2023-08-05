@@ -57,7 +57,10 @@ hook OnPlayerDisconnect(playerid)
 	return 1;
 }
 
-hook OnPlayerDeath(playerid, killerid, reason)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+hook OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
 	WakeUpPlayer(playerid);
 }
@@ -184,7 +187,7 @@ _PlayKnockOutAnimation(playerid)
 {
 	if(!IsPlayerInAnyVehicle(playerid))
 	{
-		ApplyAnimation(playerid, "PED", "KO_SHOT_STOM", 4.0, 0, 1, 1, 1, 0, 1);
+		ApplyAnimation(playerid, "PED", "KO_SHOT_STOM", 4.0, 0, 1, 1, 1, 0, SYNC_ALL);
 	}
 	else
 	{
@@ -205,12 +208,12 @@ _PlayKnockOutAnimation(playerid)
 				GetVehiclePos(vehicleid, x, y, z);
 				RemovePlayerFromVehicle(playerid);
 				SetPlayerPos(playerid, x, y, z);
-				ApplyAnimation(playerid, "PED", "BIKE_fall_off", 4.0, 0, 1, 1, 0, 0, 1);
+				ApplyAnimation(playerid, "PED", "BIKE_fall_off", 4.0, 0, 1, 1, 0, 0, SYNC_ALL);
 			}
 
 			default:
 			{
-				ApplyAnimation(playerid, "PED", "CAR_DEAD_LHS", 4.0, 0, 1, 1, 1, 0, 1);
+				ApplyAnimation(playerid, "PED", "CAR_DEAD_LHS", 4.0, 0, 1, 1, 1, 0, SYNC_ALL);
 			}
 		}
 	}
@@ -232,7 +235,10 @@ hook OnPlayerExitVehicle(playerid, vehicleid)
 	}
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(knockout_KnockedOut[playerid])
 	{

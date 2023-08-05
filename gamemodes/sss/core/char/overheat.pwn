@@ -89,7 +89,10 @@ timer OverheatUpdate[100](playerid)
 	SetPlayerProgressBarValue(playerid, OverheatBar, Overheat[playerid]);
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(!IsPlayerInAnyVehicle(playerid))
 		return 1;
@@ -112,7 +115,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	return 1;
 }
 
-hook OnPlayerStateChange(playerid, newstate, oldstate)
+#if !defined PLAYER_STATE
+	#define PLAYER_STATE: _:
+#endif
+hook OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
 	if(newstate == PLAYER_STATE_DRIVER)
 	{
@@ -131,7 +137,10 @@ hook OnPlayerStateChange(playerid, newstate, oldstate)
 	}
 }
 
-hook OnPlayerDeath(playerid, killerid, reason)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+hook OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
 	stop OverheatUpdateTimer[playerid];
 	HidePlayerProgressBar(playerid, OverheatBar);

@@ -75,11 +75,11 @@ forward ItemType:GetItemWeaponItemAmmoItem(Item:itemid);
 hook OnPlayerConnect(playerid)
 {
 	WeaponAmmoUI[playerid]			=CreatePlayerTextDraw(playerid, 520.411254, 62.649990, "500/500");
-	PlayerTextDrawAlignment			(playerid, WeaponAmmoUI[playerid], 2);
-	PlayerTextDrawBackgroundColor	(playerid, WeaponAmmoUI[playerid], 255);
-	PlayerTextDrawFont				(playerid, WeaponAmmoUI[playerid], 1);
+	PlayerTextDrawAlignment(playerid, WeaponAmmoUI[playerid], TEXT_DRAW_ALIGN_CENTRE);
+	PlayerTextDrawBackgroundColour	(playerid, WeaponAmmoUI[playerid], 255);
+	PlayerTextDrawFont(playerid, WeaponAmmoUI[playerid], TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, WeaponAmmoUI[playerid], 0.278114, 1.372495);
-	PlayerTextDrawColor				(playerid, WeaponAmmoUI[playerid], -1);
+	PlayerTextDrawColour				(playerid, WeaponAmmoUI[playerid], -1);
 	PlayerTextDrawSetShadow(playerid, WeaponAmmoUI[playerid], 0);
 	PlayerTextDrawSetOutline		(playerid, WeaponAmmoUI[playerid], 1);
 	PlayerTextDrawSetProportional	(playerid, WeaponAmmoUI[playerid], 1);
@@ -284,9 +284,9 @@ stock UpdatePlayerWeaponItem(playerid)
 	return 1;
 }
 
-stock RemovePlayerWeapon(playerid)
+stock SS_RemovePlayerWeapon(playerid)
 {
-	dbg("weapon-core", 1, "[RemovePlayerWeapon]");
+	dbg("weapon-core", 1, "[SS_RemovePlayerWeapon]");
 	if(!IsPlayerConnected(playerid))
 		return 0;
 
@@ -315,7 +315,7 @@ _FastUpdateHandler(playerid)
 	if(!IsValidItemType(itemtype))
 	{
 		if(GetPlayerWeapon(playerid) > 0)
-			RemovePlayerWeapon(playerid);
+			SS_RemovePlayerWeapon(playerid);
 
 		return;
 	}
@@ -339,7 +339,7 @@ _FastUpdateHandler(playerid)
 
 	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
 	{
-		SetPlayerArmedWeapon(playerid, 0);
+		SetPlayerArmedWeapon(playerid, WEAPON_FIST);
 		return;
 	}
 
@@ -413,7 +413,13 @@ timer _RepeatingFire[1000](playerid)
 	return;
 }
 
-hook OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)
+#if !defined BULLET_HIT_TYPE
+	#define BULLET_HIT_TYPE: _:
+#endif
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+hook OnPlayerWeaponShot(playerid, WEAPON:weaponid, BULLET_HIT_TYPE:hittype, hitid, Float:fX, Float:fY, Float:fZ)
 {
 	dbg("weapon-core", 1, "[OnPlayerWeaponShot] %d fired weapon %d", playerid, weaponid);
 	if(!_FireWeapon(playerid, weaponid, hittype, hitid, fX, fY, fZ))
@@ -586,11 +592,11 @@ hook OnPlayerHolsteredItem(playerid, Item:itemid)
 		if(GetItemTypeWeaponBaseWeapon(GetItemType(helditemid)) > 0)
 		{
 			if(GetItemWeaponItemMagAmmo(helditemid) == 0)
-				RemovePlayerWeapon(playerid);
+				SS_RemovePlayerWeapon(playerid);
 		}
 		else
 		{
-			RemovePlayerWeapon(playerid);
+			SS_RemovePlayerWeapon(playerid);
 		}
 	}
 
@@ -615,7 +621,10 @@ hook OnPlayerUnHolsteredItem(playerid, Item:itemid)
 ==============================================================================*/
 
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(newkeys & 1)
 	{

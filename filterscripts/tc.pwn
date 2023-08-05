@@ -27,9 +27,9 @@ forward Update();
 public OnFilterScriptInit()
 {
 	TickCheck = TextDrawCreate(320.0, 340.0, "200");
-	TextDrawAlignment		(TickCheck, 2);
+	TextDrawAlignment(TickCheck, TEXT_DRAW_ALIGN_CENTRE);
 	TextDrawBackgroundColor	(TickCheck, 0);
-	TextDrawFont			(TickCheck, 1);
+	TextDrawFont(TickCheck, TEXT_DRAW_FONT_1);
 	TextDrawLetterSize		(TickCheck, 0.210000, 1.000000);
 	TextDrawColor			(TickCheck, -1);
 	TextDrawSetProportional	(TickCheck, 1);

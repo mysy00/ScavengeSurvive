@@ -37,7 +37,10 @@ hook OnPlayerConnect(playerid)
 	return 1;
 }
 
-hook OnPlayerDeath(playerid, killerid, reason)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+hook OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
 	infect_InfectionIntensity[playerid][0] = 0;
 	infect_InfectionIntensity[playerid][1] = 0;

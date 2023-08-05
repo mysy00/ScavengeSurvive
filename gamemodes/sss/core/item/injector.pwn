@@ -88,7 +88,10 @@ hook OnPlayerUseItem(playerid, Item:itemid)
 	return Y_HOOKS_CONTINUE_RETURN_0;
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(oldkeys & 16 && inj_CurrentItem[playerid] != INVALID_ITEM_ID)
 	{
@@ -102,8 +105,8 @@ StartInjecting(playerid, targetid)
 {
 	if(playerid == targetid)
 	{
-		ApplyAnimation(playerid, "PED", "IDLE_CSAW", 4.0, 0, 1, 1, 0, 500, 1);
-	//	ApplyAnimation(playerid, "BAR", "dnk_stndM_loop", 3.0, 0, 1, 1, 0, 500, 1);
+		ApplyAnimation(playerid, "PED", "IDLE_CSAW", 4.0, 0, 1, 1, 0, 500, SYNC_ALL);
+	//	ApplyAnimation(playerid, "BAR", "dnk_stndM_loop", 3.0, 0, 1, 1, 0, 500, SYNC_ALL);
 	}
 
 	else
@@ -112,7 +115,7 @@ StartInjecting(playerid, targetid)
 			ApplyAnimation(playerid, "KNIFE", "KNIFE_G", 2.0, 0, 0, 0, 0, 0);
 
 		else
-			ApplyAnimation(playerid, "ROCKET", "IDLE_ROCKET", 4.0, 0, 1, 1, 0, 500, 1);
+			ApplyAnimation(playerid, "ROCKET", "IDLE_ROCKET", 4.0, 0, 1, 1, 0, 500, SYNC_ALL);
 	}
 
 	inj_CurrentItem[playerid] = GetPlayerItem(playerid);

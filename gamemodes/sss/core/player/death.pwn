@@ -44,7 +44,10 @@ hook OnPlayerDisconnect(playerid, reason)
 	death_Dying[playerid] = false;
 }
 
-public OnPlayerDeath(playerid, killerid, reason)
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
 	if(GetTickCountDifference(GetTickCount(), death_LastDeath[playerid]) < 1000)
 		return -1;
@@ -76,7 +79,6 @@ _OnDeath(playerid, killerid)
 		deathreasonstring[256];
 
 	death_Dying[playerid] = true;
-	SetPlayerSpawnedState(playerid, false);
 	SetPlayerAliveState(playerid, false);
 
 	GetPlayerPos(playerid, death_PosX[playerid], death_PosY[playerid], death_PosZ[playerid]);
@@ -92,7 +94,7 @@ _OnDeath(playerid, killerid)
 
 	HideWatch(playerid);
 	DropItems(playerid, death_PosX[playerid], death_PosY[playerid], death_PosZ[playerid], death_RotZ[playerid], true);
-	RemovePlayerWeapon(playerid);
+	SS_RemovePlayerWeapon(playerid);
 	RemoveAllDrugs(playerid);
 	SpawnPlayer(playerid);
 
@@ -417,11 +419,11 @@ timer SpawnDeathDelay[1500](playerid)
 hook OnGameModeInit()
 {
 	DeathText					=TextDrawCreate(320.000000, 300.000000, "YOU ARE DEAD!");
-	TextDrawAlignment			(DeathText, 2);
-	TextDrawBackgroundColor		(DeathText, 255);
-	TextDrawFont				(DeathText, 1);
+	TextDrawAlignment(DeathText, TEXT_DRAW_ALIGN_CENTRE);
+	TextDrawBackgroundColour		(DeathText, 255);
+	TextDrawFont(DeathText, TEXT_DRAW_FONT_1);
 	TextDrawLetterSize			(DeathText, 0.500000, 2.000000);
-	TextDrawColor				(DeathText, -1);
+	TextDrawColour				(DeathText, -1);
 	TextDrawSetOutline			(DeathText, 0);
 	TextDrawSetProportional		(DeathText, 1);
 	TextDrawSetShadow			(DeathText, 1);
@@ -430,11 +432,11 @@ hook OnGameModeInit()
 	TextDrawTextSize			(DeathText, 20.000000, 150.000000);
 
 	DeathButton					=TextDrawCreate(320.000000, 323.000000, ">Play Again<");
-	TextDrawAlignment			(DeathButton, 2);
-	TextDrawBackgroundColor		(DeathButton, 255);
-	TextDrawFont				(DeathButton, 1);
+	TextDrawAlignment(DeathButton, TEXT_DRAW_ALIGN_CENTRE);
+	TextDrawBackgroundColour		(DeathButton, 255);
+	TextDrawFont(DeathButton, TEXT_DRAW_FONT_1);
 	TextDrawLetterSize			(DeathButton, 0.370000, 1.599999);
-	TextDrawColor				(DeathButton, -1);
+	TextDrawColour				(DeathButton, -1);
 	TextDrawSetOutline			(DeathButton, 0);
 	TextDrawSetProportional		(DeathButton, 1);
 	TextDrawSetShadow			(DeathButton, 1);

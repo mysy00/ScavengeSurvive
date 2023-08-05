@@ -55,7 +55,10 @@ hook OnPlayerUseItem(playerid, Item:itemid)
 	return Y_HOOKS_CONTINUE_RETURN_0;
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(GetItemType(GetPlayerItem(playerid)) == item_FishRod)
 	{

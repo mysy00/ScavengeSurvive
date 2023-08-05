@@ -46,7 +46,7 @@ CMD:wheelpos(playerid, params[])
 		GetVehicleWheelPos(vehicleid, wheel, x, y, z);
 		CreateObject(18647, x, y, z, 0.0, 0.0, 0.0);
 		format(str, 12, "%d", wheel);
-		Create3DTextLabel(str, 0xFFFF00FF, x, y, z + (float(wheel) / 10.0), 100.0, 0, 0);
+		Create3DTextLabel(str, 0xFFFF00FF, x, y, z + (float(wheel) / 10.0), 100.0, 0, false);
 	}
 
 	return 1;

@@ -109,30 +109,30 @@ hook OnPlayerConnect(playerid)
 //timer LoadClassUI[1](playerid)
 //{
 	ClassButtonMale[playerid]		=CreatePlayerTextDraw(playerid, 250.000000, 200.000000, "~n~Male~n~~n~");
-	PlayerTextDrawAlignment			(playerid, ClassButtonMale[playerid], 2);
-	PlayerTextDrawBackgroundColor	(playerid, ClassButtonMale[playerid], 255);
-	PlayerTextDrawFont				(playerid, ClassButtonMale[playerid], 1);
+	PlayerTextDrawAlignment(playerid, ClassButtonMale[playerid], TEXT_DRAW_ALIGN_CENTRE);
+	PlayerTextDrawBackgroundColour	(playerid, ClassButtonMale[playerid], 255);
+	PlayerTextDrawFont(playerid, ClassButtonMale[playerid], TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, ClassButtonMale[playerid], 0.500000, 2.000000);
-	PlayerTextDrawColor				(playerid, ClassButtonMale[playerid], -1);
+	PlayerTextDrawColour				(playerid, ClassButtonMale[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, ClassButtonMale[playerid], 0);
 	PlayerTextDrawSetProportional	(playerid, ClassButtonMale[playerid], 1);
 	PlayerTextDrawSetShadow			(playerid, ClassButtonMale[playerid], 1);
 	PlayerTextDrawUseBox			(playerid, ClassButtonMale[playerid], 1);
-	PlayerTextDrawBoxColor			(playerid, ClassButtonMale[playerid], 255);
+	PlayerTextDrawBoxColour			(playerid, ClassButtonMale[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, ClassButtonMale[playerid], 44.000000, 100.000000);
 	PlayerTextDrawSetSelectable		(playerid, ClassButtonMale[playerid], true);
 
 	ClassButtonFemale[playerid]		=CreatePlayerTextDraw(playerid, 390.000000, 200.000000, "~n~Female~n~~n~");
-	PlayerTextDrawAlignment			(playerid, ClassButtonFemale[playerid], 2);
-	PlayerTextDrawBackgroundColor	(playerid, ClassButtonFemale[playerid], 255);
-	PlayerTextDrawFont				(playerid, ClassButtonFemale[playerid], 1);
+	PlayerTextDrawAlignment(playerid, ClassButtonFemale[playerid], TEXT_DRAW_ALIGN_CENTRE);
+	PlayerTextDrawBackgroundColour	(playerid, ClassButtonFemale[playerid], 255);
+	PlayerTextDrawFont(playerid, ClassButtonFemale[playerid], TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, ClassButtonFemale[playerid], 0.500000, 2.000000);
-	PlayerTextDrawColor				(playerid, ClassButtonFemale[playerid], -1);
+	PlayerTextDrawColour				(playerid, ClassButtonFemale[playerid], -1);
 	PlayerTextDrawSetOutline		(playerid, ClassButtonFemale[playerid], 0);
 	PlayerTextDrawSetProportional	(playerid, ClassButtonFemale[playerid], 1);
 	PlayerTextDrawSetShadow			(playerid, ClassButtonFemale[playerid], 1);
 	PlayerTextDrawUseBox			(playerid, ClassButtonFemale[playerid], 1);
-	PlayerTextDrawBoxColor			(playerid, ClassButtonFemale[playerid], 255);
+	PlayerTextDrawBoxColour			(playerid, ClassButtonFemale[playerid], 255);
 	PlayerTextDrawTextSize			(playerid, ClassButtonFemale[playerid], 44.000000, 100.000000);
 	PlayerTextDrawSetSelectable		(playerid, ClassButtonFemale[playerid], true);
 }
@@ -162,8 +162,6 @@ SpawnLoggedInPlayer(playerid)
 
 PrepareForSpawn(playerid)
 {
-	SetPlayerSpawnedState(playerid, true);
-
 	SetCameraBehindPlayer(playerid);
 	SetAllWeaponSkills(playerid, 500);
 
@@ -412,25 +410,6 @@ PlayerSpawnNewCharacter(playerid, gender)
 
 ==============================================================================*/
 
-
-// spawn_State
-stock IsPlayerSpawned(playerid)
-{
-	if(!IsPlayerConnected(playerid))
-		return 0;
-
-	return spawn_State[playerid];
-}
-
-stock SetPlayerSpawnedState(playerid, bool:st)
-{
-	if(!IsPlayerConnected(playerid))
-		return 0;
-
-	spawn_State[playerid] = st;
-
-	return 1;
-}
 
 // spawn_PosX
 // spawn_PosY

@@ -49,7 +49,7 @@ CreateLootVehicle(type, Float:x, Float:y, Float:z, Float:r)
 
 	Iter_Add(veh_Index, vehicleid);
 
-	SetVehicleColours(vehicleid, colour1, colour2);
+	ChangeVehicleColours(vehicleid, colour1, colour2);
 
 	GenerateVehicleData(vehicleid);
 	SetVehicleSpawnPoint(vehicleid, x, y, z, r);

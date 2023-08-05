@@ -869,7 +869,10 @@ VehicleModCheck(playerid)
 ==============================================================================*/
 
 
-hook OnPlayerStateChange(playerid, newstate, oldstate)
+#if !defined PLAYER_STATE
+	#define PLAYER_STATE: _:
+#endif
+hook OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
 	if(newstate == PLAYER_STATE_DRIVER)
 	{
@@ -959,7 +962,13 @@ static
 	ammo_LastShot[MAX_PLAYERS],
 	ammo_ShotCounter[MAX_PLAYERS];
 
-hook OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)
+#if !defined BULLET_HIT_TYPE
+	#define BULLET_HIT_TYPE: _:
+#endif
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+hook OnPlayerWeaponShot(playerid, WEAPON:weaponid, BULLET_HIT_TYPE:hittype, hitid, Float:fX, Float:fY, Float:fZ)
 {
 	if(GetTickCountDifference(GetTickCount(), ammo_LastShot[playerid]) < GetWeaponShotInterval(weaponid) + 10)
 	{

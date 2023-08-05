@@ -4,7 +4,13 @@
 static PlayerAimPunch[MAX_PLAYERS] = {0, ...};
 
 
-public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)
+#if !defined BULLET_HIT_TYPE
+	#define BULLET_HIT_TYPE: _:
+#endif
+#if !defined WEAPON
+	#define WEAPON: _:
+#endif
+public OnPlayerWeaponShot(playerid, WEAPON:weaponid, BULLET_HIT_TYPE:hittype, hitid, Float:fX, Float:fY, Float:fZ)
 {
 	if(PlayerAimPunch[playerid] == 0)
 		PlayerAimPunch[playerid] = 1000;
@@ -15,7 +21,10 @@ public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY
 	return 1;
 }
 
-public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(!(oldkeys & KEY_FIRE))
 	{

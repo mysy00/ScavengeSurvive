@@ -282,7 +282,7 @@ Error:CreateAccount(playerid, const password[])
 		serial[MAX_GPCI_LEN];
 
 	GetPlayerName(playerid, name, MAX_PLAYER_NAME);
-	gpci(playerid, serial, MAX_GPCI_LEN);
+	GPCI(playerid, serial, MAX_GPCI_LEN);
 
 	stmt_bind_value(stmt_AccountCreate, 0, DB::TYPE_STRING,		name, MAX_PLAYER_NAME); 
 	stmt_bind_value(stmt_AccountCreate, 1, DB::TYPE_STRING,		password, MAX_PASSWORD_LEN); 
@@ -466,7 +466,7 @@ DisplayLoginPrompt(playerid, badpass = 0)
 Login(playerid)
 {
 	new serial[MAX_GPCI_LEN];
-	gpci(playerid, serial, MAX_GPCI_LEN);
+	GPCI(playerid, serial, MAX_GPCI_LEN);
 
 	Logger_Log("player logged in",
 		Logger_P(playerid),
@@ -629,7 +629,7 @@ Logout(playerid, docombatlogcheck = 1)
 		DestroyItem(GetPlayerHolsterItem(playerid));
 		DestroyPlayerBag(playerid);
 		RemovePlayerHolsterItem(playerid);
-		RemovePlayerWeapon(playerid);
+		SS_RemovePlayerWeapon(playerid);
 
 		for(new i; i < MAX_INVENTORY_SLOTS; i++)
 		{

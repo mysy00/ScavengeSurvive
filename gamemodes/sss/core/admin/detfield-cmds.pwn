@@ -770,7 +770,10 @@ hook OnPlayerDialogPage(playerid, direction)
 	}
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(dfm_Editing[playerid])
 	{

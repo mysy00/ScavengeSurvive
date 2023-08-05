@@ -39,10 +39,10 @@ ACMD:mute[1](playerid, params[])
 {
 	new
 		targetid,
-		delay,
+		muteDelay,
 		reason[128];
 
-	if(sscanf(params, "dds[128]", targetid, delay, reason))
+	if(sscanf(params, "dds[128]", targetid, muteDelay, reason))
 		return ChatMsg(playerid,YELLOW," >  Usage: /mute [playerid] [seconds] [reason] - use -1 as a seconds duration for a permanent mute.");
 
 	if(!IsPlayerConnected(targetid))
@@ -54,11 +54,11 @@ ACMD:mute[1](playerid, params[])
 	if(IsPlayerMuted(targetid))
 		return ChatMsg(playerid, YELLOW, " >  Player Already Muted");
 
-	if(delay > 0)
+	if(muteDelay > 0)
 	{
-		TogglePlayerMute(targetid, true, delay);
-		ChatMsg(playerid, YELLOW, " >  Muted player %P "C_WHITE"for %d seconds.", targetid, delay);
-		ChatMsgLang(targetid, YELLOW, "MUTEDANTIME", delay, reason);
+		TogglePlayerMute(targetid, true, muteDelay);
+		ChatMsg(playerid, YELLOW, " >  Muted player %P "C_WHITE"for %d seconds.", targetid, muteDelay);
+		ChatMsgLang(targetid, YELLOW, "MUTEDANTIME", muteDelay, reason);
 	}
 	else
 	{

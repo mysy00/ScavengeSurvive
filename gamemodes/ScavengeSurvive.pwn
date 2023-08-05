@@ -17,6 +17,7 @@
 
 ==============================================================================*/
 
+#pragma warning disable 213
 
 #include <a_samp>
 
@@ -674,11 +675,11 @@ OnGameModeInit_Setup()
 	debug_set_level("global", gGlobalDebugLevel);
 
 	RestartCount				=TextDrawCreate(410.000000, 10.000000, "Server Restart In:~n~00:00");
-	TextDrawAlignment			(RestartCount, 2);
-	TextDrawBackgroundColor		(RestartCount, 255);
-	TextDrawFont				(RestartCount, 1);
+	TextDrawAlignment(RestartCount, TEXT_DRAW_ALIGN_CENTRE);
+	TextDrawBackgroundColour		(RestartCount, 255);
+	TextDrawFont(RestartCount, TEXT_DRAW_FONT_1);
 	TextDrawLetterSize			(RestartCount, 0.400000, 1.600000);
-	TextDrawColor				(RestartCount, -1);
+	TextDrawColour				(RestartCount, -1);
 	TextDrawSetOutline			(RestartCount, 1);
 	TextDrawSetProportional		(RestartCount, 1);
 }

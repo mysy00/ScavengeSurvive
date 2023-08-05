@@ -112,7 +112,10 @@ Float:GetPlayerSoundLevel(playerid)
 // Outside the sound-system class/library
 
 // Checking for different sound triggers
-public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(newkeys & KEY_FIRE && newkeys & 128)
 	{

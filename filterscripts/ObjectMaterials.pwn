@@ -862,14 +862,12 @@ UpdateObjectMaterial(playerid, type=IDX_TYPE_MATERIAL)
 			playerid,
 			editObj[playerid],
 			tmpText,
-			tmpIdx,
-			tmpObjMatSz[playerid][tmpIdx],
+			tmpIdx, tmpObjMatSz[playerid][tmpIdx],
 			tmpObjFont[playerid][tmpIdx],
 			tmpObjFontSz[playerid][tmpIdx],
 			tmpObjBold[playerid][tmpIdx],
 			tmpFontCol,
-			tmpBackCol,
-			tmpObjAlign[playerid][tmpIdx] );
+			tmpBackCol, tmpObjAlign[playerid][tmpIdx] );
 	}
 
 	tmpIdxType[playerid][tmpIdx] = type;
@@ -1129,7 +1127,7 @@ LoadTextDrawsForPlayer(playerid)
 	PlayerTextDrawTextSize			(playerid, txtLeft, 300.000000, 40.000000);
 	PlayerTextDrawLetterSize		(playerid, txtLeft, 1.400000, 4.000000);
 	PlayerTextDrawBackgroundColor	(playerid, txtLeft, 255);
-	PlayerTextDrawFont				(playerid, txtLeft, 1);
+	PlayerTextDrawFont(playerid, txtLeft, TEXT_DRAW_FONT_1);
 	PlayerTextDrawColor				(playerid, txtLeft, -1);
 	PlayerTextDrawSetOutline		(playerid, txtLeft, 0);
 	PlayerTextDrawSetProportional	(playerid, txtLeft, 1);
@@ -1142,7 +1140,7 @@ LoadTextDrawsForPlayer(playerid)
 	PlayerTextDrawTextSize			(playerid, txtData, 340.000000, 40.000000);
 	PlayerTextDrawLetterSize		(playerid, txtData, 0.899999, 4.000000);
 	PlayerTextDrawBackgroundColor	(playerid, txtData, 255);
-	PlayerTextDrawFont				(playerid, txtData, 1);
+	PlayerTextDrawFont(playerid, txtData, TEXT_DRAW_FONT_1);
 	PlayerTextDrawColor				(playerid, txtData, -1);
 	PlayerTextDrawSetOutline		(playerid, txtData, 0);
 	PlayerTextDrawSetProportional	(playerid, txtData, 1);
@@ -1155,7 +1153,7 @@ LoadTextDrawsForPlayer(playerid)
 	PlayerTextDrawTextSize			(playerid, txtRight, 380.000000, 40.000000);
 	PlayerTextDrawLetterSize		(playerid, txtRight, 1.400000, 4.000000);
 	PlayerTextDrawBackgroundColor	(playerid, txtRight, 255);
-	PlayerTextDrawFont				(playerid, txtRight, 1);
+	PlayerTextDrawFont(playerid, txtRight, TEXT_DRAW_FONT_1);
 	PlayerTextDrawColor				(playerid, txtRight, -1);
 	PlayerTextDrawSetOutline		(playerid, txtRight, 0);
 	PlayerTextDrawSetProportional	(playerid, txtRight, 1);
@@ -1169,7 +1167,7 @@ LoadTextDrawsForPlayer(playerid)
 	PlayerTextDrawTextSize			(playerid, txtSave, 340.000000, 60.000000);
 	PlayerTextDrawLetterSize		(playerid, txtSave, 1.400000, 2.000000);
 	PlayerTextDrawBackgroundColor	(playerid, txtSave, 255);
-	PlayerTextDrawFont				(playerid, txtSave, 1);
+	PlayerTextDrawFont(playerid, txtSave, TEXT_DRAW_FONT_1);
 	PlayerTextDrawColor				(playerid, txtSave, -1);
 	PlayerTextDrawSetOutline		(playerid, txtSave, 0);
 	PlayerTextDrawSetProportional	(playerid, txtSave, 1);
@@ -1182,7 +1180,7 @@ LoadTextDrawsForPlayer(playerid)
 	txtContU = CreatePlayerTextDraw	(playerid, 300.000000, 10.000000, "~u~");
 	PlayerTextDrawTextSize			(playerid, txtContU, 340.000000, 40.000000);
 	PlayerTextDrawBackgroundColor	(playerid, txtContU, 255);
-	PlayerTextDrawFont				(playerid, txtContU, 1);
+	PlayerTextDrawFont(playerid, txtContU, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, txtContU, 0.6, 5.7);
 	PlayerTextDrawColor				(playerid, txtContU, -1);
 	PlayerTextDrawSetOutline		(playerid, txtContU, 0);
@@ -1195,7 +1193,7 @@ LoadTextDrawsForPlayer(playerid)
 	txtContD = CreatePlayerTextDraw	(playerid, 300.000000, 280.000000, "~d~");
 	PlayerTextDrawTextSize			(playerid, txtContD, 340.000000, 60.000000);
 	PlayerTextDrawBackgroundColor	(playerid, txtContD, 255);
-	PlayerTextDrawFont				(playerid, txtContD, 1);
+	PlayerTextDrawFont(playerid, txtContD, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, txtContD, 0.6, 5.7);
 	PlayerTextDrawColor				(playerid, txtContD, -1);
 	PlayerTextDrawSetOutline		(playerid, txtContD, 0);
@@ -1208,7 +1206,7 @@ LoadTextDrawsForPlayer(playerid)
 	txtContL = CreatePlayerTextDraw	(playerid, 40.000000, 200.000000, "~<~");
 	PlayerTextDrawTextSize			(playerid, txtContL, 80.000000, 60.000000);
 	PlayerTextDrawBackgroundColor	(playerid, txtContL, 255);
-	PlayerTextDrawFont				(playerid, txtContL, 1);
+	PlayerTextDrawFont(playerid, txtContL, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, txtContL, 0.6, 5.7);
 	PlayerTextDrawColor				(playerid, txtContL, -1);
 	PlayerTextDrawSetOutline		(playerid, txtContL, 0);
@@ -1221,7 +1219,7 @@ LoadTextDrawsForPlayer(playerid)
 	txtContR = CreatePlayerTextDraw	(playerid, 560.000000, 200.000000, "~>~");
 	PlayerTextDrawTextSize			(playerid, txtContR, 600.000000, 60.000000);
 	PlayerTextDrawBackgroundColor	(playerid, txtContR, 255);
-	PlayerTextDrawFont				(playerid, txtContR, 1);
+	PlayerTextDrawFont(playerid, txtContR, TEXT_DRAW_FONT_1);
 	PlayerTextDrawLetterSize		(playerid, txtContR, 0.6, 5.7);
 	PlayerTextDrawColor				(playerid, txtContR, -1);
 	PlayerTextDrawSetOutline		(playerid, txtContR, 0);

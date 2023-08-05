@@ -176,7 +176,10 @@ CMD:saveall(playerid, params[])
 	return 1;
 }
 
-public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+public OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(newkeys & INTERACTION_KEYCODE)
 	{

@@ -135,7 +135,7 @@ CMD:dropall(playerid, params[])
 }
 timer Suicide[3000](playerid)
 {
-	RemovePlayerWeapon(playerid);
+	SS_RemovePlayerWeapon(playerid);
 	SetPlayerHP(playerid, -100.0);
 }
 */

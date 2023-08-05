@@ -27,7 +27,10 @@ hook OnPlayerDisconnect(playerid)
 	DestroyObject(CollisionObject[playerid]);
 }
 
-hook OnPlayerStateChange(playerid, newstate, oldstate)
+#if !defined PLAYER_STATE
+	#define PLAYER_STATE: _:
+#endif
+hook OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
 	if(newstate == PLAYER_STATE_DRIVER)
 	{

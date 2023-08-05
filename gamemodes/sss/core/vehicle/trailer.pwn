@@ -209,7 +209,10 @@ hook OnVehicleDeath(vehicleid, killerid)
 	return 1;
 }
 
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+#if !defined KEY
+	#define KEY: _:
+#endif
+hook OnPlayerKeyStateChange(playerid, KEY:newkeys, KEY:oldkeys)
 {
 	if(!IsPlayerInAnyVehicle(playerid))
 		return 1;
